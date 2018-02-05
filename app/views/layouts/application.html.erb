@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<%= render 'layouts/header' %>
+<html>
+
+  <head>
+    <title>Secret</title>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="container">
+  <% flash.each do |message_type, message| %>
+   <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+ <% end %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= yield %>
+  </body>
+</html>
